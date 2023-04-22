@@ -1,9 +1,5 @@
-# Fabric Example Mod
+# Fabric Force Lowercase
 
-## Setup
+This mod forces the first argument of any command to be sent as lowercase to the server to prevent syntax issues
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
-
-## License
-
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+Inspired by [Force Lowercase Commands](https://modrinth.com/mod/force-lowercase-commands)

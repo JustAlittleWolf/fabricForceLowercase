@@ -1,38 +1,30 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "fabricforcelowercase",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Fabric Force Lowercase",
+  "description": "Forces the first argument of commands to be sent as lowercase to the server",
   "authors": [
-    "Me!"
+    "JustAlittleWolf"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/JustAlittleWolf/fabricForceLowercase"
   },
 
-  "license": "CC0-1.0",
+  "license": "MIT",
   "icon": "assets/modid/icon.png",
 
   "environment": "*",
   "entrypoints": {
-    "main": [
-      "net.fabricmc.example.ExampleMod"
-    ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "fabricforcelowercase.mixins.json"
   ],
 
   "depends": {
     "fabricloader": ">=0.14.17",
-    "fabric-api": "*",
-    "minecraft": "~1.19.4",
+    "minecraft": "1.19.x",
     "java": ">=17"
-  },
-  "suggests": {
-    "another-mod": "*"
   }
 }
