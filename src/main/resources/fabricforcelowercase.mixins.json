@@ -6,8 +6,7 @@
   "mixins": [
   ],
   "client": [
-    "SleepingChatScreenMixin",
-    "ChatScreenMixin"
+    "TextFieldWidgetMixin"
   ],
   "injectors": {
     "defaultRequire": 1
