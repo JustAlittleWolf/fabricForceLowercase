@@ -15,7 +15,7 @@
   "license": "MIT",
   "icon": "assets/fabricforcelowercase/icon.png",
 
-  "environment": "*",
+  "environment": "client",
   "entrypoints": {
   },
   "mixins": [
@@ -23,8 +23,7 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.14.17",
-    "minecraft": "1.19.x",
-    "java": ">=17"
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "1.20.x"
   }
 }
