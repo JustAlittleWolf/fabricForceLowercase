@@ -22,7 +22,7 @@ public class TextFieldWidgetMixin {
         }
     }
 
-    @Redirect(method = "renderButton", at = @At(value = "FIELD", target = "Lnet/minecraft/client/gui/widget/TextFieldWidget;text:Ljava/lang/String;", opcode = Opcodes.GETFIELD))
+    @Redirect(method = "renderWidget", at = @At(value = "FIELD", target = "Lnet/minecraft/client/gui/widget/TextFieldWidget;text:Ljava/lang/String;", opcode = Opcodes.GETFIELD))
     private String modifiedGetText(TextFieldWidget instance) {
         String finalText = this.text;
         if (this.text.startsWith("/")) {
