@@ -1,7 +1,7 @@
 package me.wolfii.fabricforcelowercase.mixin;
 
 import me.wolfii.fabricforcelowercase.StringHelper;
-import net.minecraft.client.gui.widget.TextFieldWidget;
+import net.minecraft.client.gui.components.EditBox;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -10,23 +10,23 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(TextFieldWidget.class)
+@Mixin(EditBox.class)
 public class TextFieldWidgetMixin {
     @Shadow
-    private String text;
+    private String value;
 
-    @Inject(method = "getText", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "getValue", at = @At("HEAD"), cancellable = true)
     private void modifiedGetText(CallbackInfoReturnable<String> cir) {
-        if (this.text.startsWith("/")) {
-            cir.setReturnValue(StringHelper.firstArgumentToLowerCase(this.text));
+        if (this.value.startsWith("/")) {
+            cir.setReturnValue(StringHelper.firstArgumentToLowerCase(this.value));
         }
     }
 
-    @Redirect(method = "renderWidget", at = @At(value = "FIELD", target = "Lnet/minecraft/client/gui/widget/TextFieldWidget;text:Ljava/lang/String;", opcode = Opcodes.GETFIELD))
-    private String modifiedGetText(TextFieldWidget instance) {
-        String finalText = this.text;
-        if (this.text.startsWith("/")) {
-            finalText = StringHelper.firstArgumentToLowerCase(text);
+    @Redirect(method = "renderWidget", at = @At(value = "FIELD", target = "Lnet/minecraft/client/gui/components/EditBox;value:Ljava/lang/String;", opcode = Opcodes.GETFIELD))
+    private String modifiedGetText(EditBox instance) {
+        String finalText = this.value;
+        if (this.value.startsWith("/")) {
+            finalText = StringHelper.firstArgumentToLowerCase(value);
         }
         return finalText;
     }
